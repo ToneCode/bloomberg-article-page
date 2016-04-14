@@ -24,6 +24,7 @@
 			<li>profile shares article:		m-to-n</li>
 			<li>profile comments to user:    1-to-n</li>
 		</ul>
+		<img src="images/logicalModel.svg" alt="logicalModel"/>
 
 
 
