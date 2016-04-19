@@ -5,9 +5,9 @@
 		<title>Bloomberg-article-page</title>
 	</head>
 	<body>
-		<h1>Aurthur of bloomberg article targeting high networth influencers</h1>
+		<h1>Aurthor of bloomberg article targeting high networth influencers</h1>
 		
-		<p>Profile of Aurthur</p>
+		<p>Profile of Aurthor</p>
 		<ul>
 			<li>profileId</li>
 			<li>nameId</li>
@@ -18,7 +18,7 @@
 			<li>hashSalt</li>
 		</ul>
 		<h2>Conceptual model</h2>
-		<p>Model of Aurthur</p>
+		<p>Model of Aurthor</p>
 		<ul>
 			<li>profile writes article:		m-to-n</li>
 			<li>profile shares article:		m-to-n</li>
