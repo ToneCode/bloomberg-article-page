@@ -2,7 +2,7 @@
 
 namespace Edu\Cnm\awilliams144\bloomberg;
 
-require_once("autoload.php");
+
 
 /**
  * Small Cross Section of a Bloomberg Articles
@@ -19,7 +19,27 @@ class Profile {
 	 * actual textual content of this article
 	 * @var string $profileContent
 	 */
-
+	/**
+	 * constructor for this Profile
+	 * @param int $newProfileId id of the Profile wrote this article
+	 **/
+public function __construct(int $newProfileId = null) {
+    try {
+					$this->setProfileId($newProfileId);
+   }	catch(\InvalidArgumentException $invalidArgument) {
+		 // rethrow the exception to the caller
+		 throw(new \InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+	 }	catch(\RangeException $range) {
+		 //rethrow the exception to the caller
+		 throw(new \RangeException($range->getMessage(), 0, $range));
+	 }	catch(\TypeError $typeError) {
+		 //rethrow the exception to the caller
+		 throw(new \TypeError($typeError->getMessage(), 0, $typeError));
+	 }	catch(\Exception $exception){
+		 //rethrow the exception to the caller
+		 throw(new \Exception($exception->getMessage(), 0, $exception));
+	 }
+}
 	/**
 	 * accessor method for profile id
 	 * @return int value of profile id
@@ -28,6 +48,7 @@ class Profile {
 	public function getProfileId() {
 		return($this->profileId);
 	}
+*
 
 
 	/**
