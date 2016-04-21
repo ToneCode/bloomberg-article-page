@@ -48,7 +48,7 @@ public function __construct(int $newProfileId = null) {
 	public function getProfileId() {
 		return($this->profileId);
 	}
-*
+
 
 
 	/**
