@@ -10,10 +10,10 @@ namespace Edu\Cnm\awilliams144\bloomberg;
  * These Articles can be considered a small example of what services like Bloomberg.com provide.
  * @author Anthony Williams <awilliams144@cnm.edu
  * @version 2.0.0
- */
+ **/
 
-class Profile {
-
+class Profile implements \JsonSerializable  {
+				use ValidateProfileId;
 	private $profileId;
 	/**
 	 * actual textual content of this article
@@ -65,6 +65,18 @@ public function __construct(int $newProfileId = null) {
 		}
 		// convert and store this profile id
 		$this->profileId = $newProfileId;
+	}
+	/**
+	 * formats the state variables for JSON serialization
+	 *
+	 * @return array resulting state variables to serialize
+	 **/
+	public function jsonSerialize() {
+		// TODO: Implement jsonSerialize() method.
+		$fields = get_object_vars($this);
+		$fields["profileId"] = intval($this->profileId->format("U")) * 1000;
+		return($fields);
+
 	}
 }
 
