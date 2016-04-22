@@ -25,8 +25,8 @@ class Profile implements \JsonSerializable  {
 	 **/
 public function __construct(int $newProfileId = null) {
     try {
-					$this->setProfileId($newProfileId);
-   }	catch(\InvalidArgumentException $invalidArgument) {
+		 $newProfileId = $this->profileId($newProfileId);
+	   }	catch(\InvalidArgumentException $invalidArgument) {
 		 // rethrow the exception to the caller
 		 throw(new \InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
 	 }	catch(\RangeException $range) {
@@ -41,6 +41,22 @@ public function __construct(int $newProfileId = null) {
 	 }
 }
 	/**
+	 * inserts this Profile into mySQL
+	 *
+	 * @param \PDO $pdo PDO connection object
+	 * @throws \PDOException when mySQL related errors occur
+	 * @throws  \TypeError if $pdo is not a PDO connection object
+	 **/
+	public function insert(\PDO $pdo){
+		// enforce the profileId is null (i.e., don't insert a profile that already exist)
+			if($this->profileId !== null){
+				throw(new \ PDOException("not a new profile"));
+				}
+			}
+	}
+	/**
+	 *
+	 *
 	 * accessor method for profile id
 	 * @return int value of profile id
 	 **/
